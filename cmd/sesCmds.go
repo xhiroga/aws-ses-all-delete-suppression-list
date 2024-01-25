@@ -116,7 +116,7 @@ func deleteAll(svc *sesv2.Client) {
 			}
 			break
 		}
-		fmt.Printf("\rProgress: %d/%d", i+1, totalDestinations)
+		fmt.Printf("\rProgress: %d/%d\n", i+1, totalDestinations)
 	}
 	fmt.Println("\nDeletion complete.")
 }

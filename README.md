@@ -7,6 +7,8 @@ List, summary and delete all account level suppression list in AWS SES
 ```bash
 make install
 aws-ses-suppression-list summary
+# or
+go run main.go summary
 ```
 
 ## Uninstall
