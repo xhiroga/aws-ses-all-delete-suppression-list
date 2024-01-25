@@ -1,4 +1,4 @@
-# aws-ses-all-suppression-list
+# aws-ses-suppression-list
 
 List, summary and delete all account level suppression list in AWS SES
 
@@ -6,7 +6,7 @@ List, summary and delete all account level suppression list in AWS SES
 
 ```bash
 make install
-aws-ses-all-suppression-list summary
+aws-ses-suppression-list summary
 ```
 
 ## Uninstall

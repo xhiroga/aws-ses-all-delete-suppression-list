@@ -11,7 +11,7 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "aws-ses-all-suppression-list",
+	Use:   "aws-ses-suppression-list",
 	Short: "Deletes all AWS SES account level suppression list",
 	Long:  `This tool is designed to delete all account level suppression list in AWS SES.`,
 	// Uncomment the following line if your bare application
@@ -33,7 +33,7 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.aws-ses-all-suppression-list.yaml)")
+	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.aws-ses-suppression-list.yaml)")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
