@@ -1,6 +1,6 @@
 # aws-ses-suppression-list
 
-List, summary and delete all account level suppression list in AWS SES
+List, summary and delete all email address in account level suppression list in AWS SES
 
 ## Getting started
 
