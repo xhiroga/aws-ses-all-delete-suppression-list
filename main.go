@@ -1,10 +1,9 @@
 /*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
+Copyright © 2024 @xhiroga
 */
 package main
 
-import "aws-ses-all-delete-suppression-list/cmd"
+import "aws-ses-all-suppression-list/cmd"
 
 func main() {
 	cmd.Execute()

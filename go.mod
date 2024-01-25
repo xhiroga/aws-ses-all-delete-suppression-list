@@ -1,4 +1,4 @@
-module aws-ses-all-delete-suppression-list
+module aws-ses-all-suppression-list
 
 go 1.21.1
 
