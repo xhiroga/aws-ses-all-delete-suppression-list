@@ -100,26 +100,34 @@ func deleteAll(svc *sesv2.Client) {
 
 	fmt.Println("Deleting suppressed email destinations:")
 	totalDestinations := len(destinations)
-	for i, destination := range destinations {
+	successCount := 0
+	for _, destination := range destinations {
 		input := &sesv2.DeleteSuppressedDestinationInput{
 			EmailAddress: destination.EmailAddress,
 		}
-		for j := 0; j < 3; j++ {
-			_, err := svc.DeleteSuppressedDestination(context.TODO(), input)
+		var err error
+		for j := 0; j < 10; j++ {
+			_, err = svc.DeleteSuppressedDestination(context.TODO(), input)
 			if err != nil {
 				if strings.Contains(err.Error(), "TooManyRequestsException") {
-					time.Sleep(time.Second * time.Duration(j+1))
+					time.Sleep(time.Second * time.Duration(j*2))
 					continue
 				}
 				fmt.Println(err)
 				os.Exit(1)
 			}
+			successCount++
 			break
 		}
-		fmt.Printf("\rProgress: %d/%d\n", i+1, totalDestinations)
+		fmt.Printf("\rProgress: %d/%d", successCount, totalDestinations)
 	}
-	fmt.Println("\nDeletion complete.")
+	if successCount == totalDestinations {
+		fmt.Println("\nDeletion complete.")
+	} else {
+		fmt.Printf("\nDeletion incomplete. %d/%d destinations deleted.\n", successCount, totalDestinations)
+	}
 }
+
 func getSvc() *sesv2.Client {
 	cfg, err := config.LoadDefaultConfig(context.TODO())
 	if err != nil {
